@@ -7,6 +7,12 @@ use Illuminate\Support\Collection as BaseCollection;
 
 class Collection extends BaseCollection
 {
+    public $total;
+    public $max_score;
+    public $took;
+    public $timed_out;
+    public $scroll_id;
+    public $shards;
 
     /**
      * Get the collection of items as JSON.

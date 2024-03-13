@@ -24,9 +24,8 @@ class ElasticsearchServiceProvider extends ServiceProvider
      * ElasticsearchServiceProvider constructor.
      * @param Application $app
      */
-    function __construct($app)
+    function __construct(protected $app)
     {
-        $this->app = $app;
     }
 
     /**

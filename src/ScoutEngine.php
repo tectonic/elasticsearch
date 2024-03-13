@@ -21,9 +21,8 @@ class ScoutEngine extends Engine
      * @param Elastic $elastic
      * @param $index
      */
-    public function __construct(Elastic $elastic, $index)
+    public function __construct(protected Elastic $elastic, $index)
     {
-        $this->elastic = $elastic;
         $this->index = $index;
     }
 

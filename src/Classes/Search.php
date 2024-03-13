@@ -35,6 +35,8 @@ class Search
      */
     public $fields = [];
 
+    public $settings;
+
     /**
      * Search constructor.
      * @param Query $query
