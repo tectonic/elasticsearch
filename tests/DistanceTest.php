@@ -4,7 +4,7 @@ namespace Basemkhirat\Elasticsearch\Tests;
 
 use Basemkhirat\Elasticsearch\Tests\Traits\ESQueryTrait;
 
-class DistanceTest extends \PHPUnit_Framework_TestCase
+class DistanceTest extends \PHPUnit\Framework\TestCase
 {
 
     use ESQueryTrait;

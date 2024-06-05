@@ -7,7 +7,7 @@ use Basemkhirat\Elasticsearch\Query;
 /**
  * Class ESQueryTrait
  */
-Trait ESQueryTrait
+trait ESQueryTrait
 {
 
     /**
@@ -48,7 +48,12 @@ Trait ESQueryTrait
 
             'type' => $this->type,
 
-            'body' => [],
+            'body' => [
+                '_source' => [
+                    'include' => [],
+                    'exclude' => [],
+                ]
+            ],
 
             'from' => $this->skip,
 

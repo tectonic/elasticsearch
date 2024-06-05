@@ -4,7 +4,7 @@ namespace Basemkhirat\Elasticsearch\Tests;
 
 use Basemkhirat\Elasticsearch\Tests\Traits\ESQueryTrait;
 
-class SelectTest extends \PHPUnit_Framework_TestCase
+class SelectTest extends \PHPUnit\Framework\TestCase
 {
 
     use ESQueryTrait;
@@ -15,6 +15,7 @@ class SelectTest extends \PHPUnit_Framework_TestCase
      */
     public function testIgnoreMethod()
     {
+        
         $this->assertEquals(
             $this->getExpected("title", "content"),
             $this->getActual("title", "content")
@@ -29,7 +30,7 @@ class SelectTest extends \PHPUnit_Framework_TestCase
     {
         $query = $this->getQueryArray();
 
-        $query["body"]["_source"] = func_get_args();
+        $query["body"]["_source"]['include'] = func_get_args();
 
         return $query;
     }

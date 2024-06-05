@@ -4,7 +4,7 @@ namespace Basemkhirat\Elasticsearch\Tests;
 
 use Basemkhirat\Elasticsearch\Tests\Traits\ESQueryTrait;
 
-class WhereBetweenTest extends \PHPUnit_Framework_TestCase
+class WhereBetweenTest extends \PHPUnit\Framework\TestCase
 {
 
     use ESQueryTrait;
@@ -46,6 +46,10 @@ class WhereBetweenTest extends \PHPUnit_Framework_TestCase
         }
 
         $query["body"]["query"]["bool"]["filter"][] = ["range" => [$name => ["gte" => $first_value, "lte" => $second_value]]];
+        $query["body"]['_source'] = [
+            'include' => [],
+            'exclude' => [],
+        ];
 
         return $query;
     }

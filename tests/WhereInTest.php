@@ -4,7 +4,7 @@ namespace Basemkhirat\Elasticsearch\Tests;
 
 use Basemkhirat\Elasticsearch\Tests\Traits\ESQueryTrait;
 
-class WhereInTest extends \PHPUnit_Framework_TestCase
+class WhereInTest extends \PHPUnit\Framework\TestCase
 {
 
     use ESQueryTrait;
@@ -35,6 +35,10 @@ class WhereInTest extends \PHPUnit_Framework_TestCase
         $query = $this->getQueryArray();
 
         $query["body"]["query"]["bool"]["filter"][] = ["terms" => [$name => $value]];
+        $query["body"]['_source'] = [
+            'include' => [],
+            'exclude' => [],
+        ];
 
         return $query;
     }

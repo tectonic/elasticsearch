@@ -3,8 +3,9 @@
 namespace Basemkhirat\Elasticsearch\Tests;
 
 use Basemkhirat\Elasticsearch\Tests\Traits\ESQueryTrait;
+use PHPUnit\Framework\TestCase;
 
-class BodyTest extends \PHPUnit_Framework_TestCase
+class BodyTest extends TestCase
 {
 
     use ESQueryTrait;
@@ -45,6 +46,12 @@ class BodyTest extends \PHPUnit_Framework_TestCase
         $query = $this->getQueryArray();
 
         $query["body"] = $body;
+        $query["body"]["_source"] = [
+            'include' => [],
+            'exclude' => [],
+        ];
+//        
+//        unset($query["body"]["_source"]);
 
         return $query;
     }

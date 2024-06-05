@@ -3,7 +3,10 @@
 namespace Basemkhirat\Elasticsearch;
 
 use Elasticsearch\ClientBuilder;
+use Elasticsearch\Common\EmptyLogger;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Log;
+use Monolog\Logger;
 
 /**
  * Class Connection
@@ -134,7 +137,7 @@ class Connection
     public static function configureLogging(ClientBuilder $clientBuilder, array $config)
     {
         if (Arr::get($config,'logging.enabled')) {
-            $logger = ClientBuilder::defaultLogger(Arr::get($config,'logging.location'), Arr::get($config,'logging.level','all'));
+            $logger = new Logger(Arr::get($config,'logging.location'));
             $clientBuilder->setLogger($logger);
         }
         return $clientBuilder;

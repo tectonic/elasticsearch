@@ -4,7 +4,7 @@ namespace Basemkhirat\Elasticsearch\Tests;
 
 use Basemkhirat\Elasticsearch\Tests\Traits\ESQueryTrait;
 
-class TakeTest extends \PHPUnit_Framework_TestCase
+class TakeTest extends \PHPUnit\Framework\TestCase
 {
 
     use ESQueryTrait;
@@ -29,6 +29,11 @@ class TakeTest extends \PHPUnit_Framework_TestCase
         $query = $this->getQueryArray();
 
         $query["size"] = $take;
+        $query["body"]['_source'] = [
+            'include' => [],
+            'exclude' => [],
+        ];
+        
 
         return $query;
     }

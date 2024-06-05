@@ -4,7 +4,7 @@ namespace Basemkhirat\Elasticsearch\Tests;
 
 use Basemkhirat\Elasticsearch\Tests\Traits\ESQueryTrait;
 
-class SkipTest extends \PHPUnit_Framework_TestCase
+class SkipTest extends \PHPUnit\Framework\TestCase
 {
 
     use ESQueryTrait;
@@ -27,6 +27,10 @@ class SkipTest extends \PHPUnit_Framework_TestCase
         $query = $this->getQueryArray();
 
         $query["from"] = $from;
+        $query["body"]['_source'] = [
+            'include' => [],
+            'exclude' => [],
+        ];
 
         return $query;
     }

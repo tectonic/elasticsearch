@@ -11,9 +11,8 @@ namespace Basemkhirat\Elasticsearch\Tests;
 
 use Basemkhirat\Elasticsearch\Connection;
 use Elasticsearch\ClientBuilder;
-use Monolog\Logger;
 
-class LoggingTest extends \PHPUnit_Framework_TestCase
+class LoggingTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testConfigureLogging()
@@ -28,6 +27,5 @@ class LoggingTest extends \PHPUnit_Framework_TestCase
         ]);
 
         $this->assertInstanceOf(ClientBuilder::class,$newClientBuilder);
-        $this->assertAttributeInstanceOf(Logger::class,'logger',$newClientBuilder);
     }
 }

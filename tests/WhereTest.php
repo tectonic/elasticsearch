@@ -4,7 +4,7 @@ namespace Basemkhirat\Elasticsearch\Tests;
 
 use Basemkhirat\Elasticsearch\Tests\Traits\ESQueryTrait;
 
-class WhereTest extends \PHPUnit_Framework_TestCase
+class WhereTest extends \PHPUnit\Framework\TestCase
 {
 
     use ESQueryTrait;
@@ -30,7 +30,6 @@ class WhereTest extends \PHPUnit_Framework_TestCase
      */
     public function testWhereMethod()
     {
-
         $this->assertEquals(
             $this->getExpected("status", "published"),
             $this->getActual("status", "published")
@@ -146,6 +145,11 @@ class WhereTest extends \PHPUnit_Framework_TestCase
 
 
         $query["body"]["query"]["bool"] = $bool;
+
+        $query["body"]['_source'] = [
+            'include' => [],
+            'exclude' => [],
+        ];
 
         return $query;
     }
