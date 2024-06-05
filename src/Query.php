@@ -1101,7 +1101,7 @@ class Query
     {
 
         // Check if the request from PHP CLI
-        if (php_sapi_name() == "cli") {
+        if (app()->runningInConsole()) {
             $this->take($per_page);
             $page = $page ?: 1;
             $this->skip(($page * $per_page) - $per_page);
