@@ -106,7 +106,7 @@ class ElasticsearchServiceProvider extends ServiceProvider
             }
         }
 
-        $this->app->singleton('es', function () {
+        $this->app->scoped('es', function () {
             return new Connection();
         });
     }
