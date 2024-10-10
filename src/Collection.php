@@ -2,6 +2,7 @@
 
 namespace Basemkhirat\Elasticsearch;
 
+use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Collection as BaseCollection;
 
 
@@ -33,7 +34,7 @@ class Collection extends BaseCollection
     public function toArray()
     {
         return array_map(function($item){
-            return $item->toArray();
+            return $item instanceof Arrayable ? $item->toArray(): $item;
         }, $this->items);
     }
 
