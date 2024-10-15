@@ -2,9 +2,7 @@
 
 namespace Basemkhirat\Elasticsearch;
 
-use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Collection as BaseCollection;
-
 
 class Collection extends BaseCollection
 {
@@ -14,28 +12,4 @@ class Collection extends BaseCollection
     public $timed_out;
     public $scroll_id;
     public $shards;
-
-    /**
-     * Get the collection of items as JSON.
-     *
-     * @param  int  $options
-     * @return string
-     */
-    public function toJson($options = 0)
-    {
-        return json_encode($this->toArray(), $options);
-    }
-
-    /**
-     * Get the collection of items as Array.
-     *
-     * @return string
-     */
-    public function toArray()
-    {
-        return array_map(function($item){
-            return $item instanceof Arrayable ? $item->toArray(): $item;
-        }, $this->items);
-    }
-
 }
